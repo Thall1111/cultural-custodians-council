@@ -22,3 +22,21 @@
 .modal-content .pop-name {
   color: #111318 !important;  /* dark ink */
 }
+/* Dark Blue theme text contrast fix */
+body.theme-darkblue h1,
+body.theme-darkblue h2,
+body.theme-darkblue h3,
+body.theme-darkblue p,
+body.theme-darkblue li,
+body.theme-darkblue .lead {
+  color: #eef3ff !important; /* brighter ink for readability */
+}
+
+/* Optional: accent bullets and links stronger */
+body.theme-darkblue ul.check li::before {
+  background: #75aaff; /* brighter blue accent */
+}
+
+body.theme-darkblue a {
+  color: #75aaff;
+}
