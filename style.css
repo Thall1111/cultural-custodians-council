@@ -1,0 +1,24 @@
+/* Hero logo - larger, responsive */
+#hero-logo {
+  max-width: 520px;   /* increase maximum size */
+  width: 90%;         /* fill more width on small screens */
+  margin: 0 auto 32px;
+  display: block;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s ease;
+}
+
+/* When revealed */
+#hero-logo.reveal {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Mobile tweak: make sure it’s not too small */
+@media (max-width: 768px) {
+  #hero-logo {
+    width: 95%;      /* almost full width on phones */
+    max-width: 360px; /* but keep a cap so it doesn’t overflow */
+  }
+}
