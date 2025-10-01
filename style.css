@@ -100,3 +100,26 @@ hamburger.addEventListener('click', () => {
   flex: 0 0 auto;         /* ✅ prevent squashing */
   white-space: nowrap;    /* ✅ keep text on one line */
 }
+/* Prevent background scroll when nav open */
+body.menu-open {
+  overflow: hidden;
+}.tablist {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow-x: auto;       /* ✅ scroll horizontally */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;  /* hide scrollbar on Firefox */
+}
+
+.tablist::-webkit-scrollbar {
+  display: none;          /* hide scrollbar on WebKit */
+}
+
+.tab {
+  flex: 0 0 auto;         /* ✅ prevent squashing */
+  white-space: nowrap;    /* ✅ keep text on one line */
+}
