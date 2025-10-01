@@ -13,4 +13,12 @@
     max-width: 440px; /* safe limit for small screens */
   }
 }
-
+/* Ensure team bio modal always readable */
+.modal-content,
+.modal-content h3,
+.modal-content p,
+.modal-content li,
+.modal-content .pop-role,
+.modal-content .pop-name {
+  color: #111318 !important;  /* dark ink */
+}
