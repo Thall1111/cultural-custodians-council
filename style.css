@@ -46,3 +46,10 @@
     max-width: 440px;  /* bigger than before */
   }
 }
+
+#hero-logo {
+  max-width: 720px;
+  width: 90%;
+  margin: 0 auto 40px;
+  display: block;
+}
