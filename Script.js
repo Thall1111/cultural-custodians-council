@@ -244,3 +244,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // === Init team photos ===
 applyPhotos();
+window.addEventListener("scroll", () => {
+  const heroHeight = document.querySelector("#top").offsetHeight;
+  const scrolled = window.scrollY;
+
+  // Shrink navbar logo when past hero
+  const head = document.querySelector(".head");
+  if (scrolled > heroHeight - 60) {
+    head.classList.add("shrink");
+  } else {
+    head.classList.remove("shrink");
+  }
+});
