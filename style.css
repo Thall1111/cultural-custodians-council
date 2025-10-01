@@ -1,16 +1,8 @@
 #hero-logo {
   max-width: 720px;   /* large desktop cap */
-  width: 90%;
+  width: 90%;         /* scale on smaller screens */
   margin: 0 auto 40px;
   display: block;
-  opacity: 0;
-  transform: scale(0.9);
-  transition: all 0.6s ease;
-}
-
-#hero-logo.reveal {
-  opacity: 1;
-  transform: scale(1);
 }
 
 /* Mobile tweak */
