@@ -376,3 +376,16 @@ body.theme-white .sl { opacity:.35; }
   opacity: 1; /* 👈 force visible */
   transform: scale(1);
 }
+.theme-toggle {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  background: var(--panel, white);
+  border: 1px solid var(--line, #ddd);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+  z-index: 1000;
+}
