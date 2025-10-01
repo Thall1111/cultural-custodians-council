@@ -53,3 +53,10 @@
   margin: 0 auto 40px;
   display: block;
 }
+
+#hero-logo {
+  max-width: 720px;
+  width: 90%;
+  margin: 0 auto 40px;
+  display: block;
+}
