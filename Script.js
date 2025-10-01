@@ -256,3 +256,12 @@ window.addEventListener("scroll", () => {
     head.classList.remove("shrink");
   }
 });
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('.nav');
+const body = document.body;
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('show');
+  body.classList.toggle('menu-open'); // ✅ lock/unlock scroll
+});
