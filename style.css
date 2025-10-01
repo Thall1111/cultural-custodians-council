@@ -40,3 +40,19 @@ body.theme-darkblue ul.check li::before {
 body.theme-darkblue a {
   color: #75aaff;
 }
+/* Always force card + modal text to be dark on white */
+.card,
+.card h3,
+.card p,
+.card .role,
+.modal-content,
+.modal-content h3,
+.modal-content p,
+.modal-content li {
+  color: #111318 !important; /* dark ink for readability */
+}
+
+/* Optional: adjust role subtler */
+.card .role {
+  color: #58606b !important; /* muted dark gray */
+}
