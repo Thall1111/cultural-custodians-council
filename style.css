@@ -119,3 +119,26 @@ body.theme-darkblue a {
 #popup .modal-content .pop-role {
   color: #58606b !important;
 }
+
+/* === FORCE DETAILS PANELS TO BE SOLID WHITE === */
+details {
+  background: #ffffff !important;
+  color: #111318 !important;
+  border: 1px solid #d0d7e6 !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,.15) !important;
+}
+
+/* Ensure summary is readable */
+details summary {
+  color: #111318 !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+}
+
+/* When opened, keep content dark on white */
+details[open] p,
+details[open] li {
+  color: #111318 !important;
+}
