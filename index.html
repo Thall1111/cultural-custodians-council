@@ -395,13 +395,16 @@ doctype html>
 <!-- Hero -->
 <section id="top" class="section">
   <div>
-    <img id="hero-logo" src="CCC_Logo_Dark.png"
-         alt="Cultural Custodians Council"
-         style="max-width:420px; width:80%; margin:0 auto 28px;
-                display:block; opacity:0; transform:scale(0.9);
-                transition:all 0.6s ease;">
-    <h1 class="hero-headline">Sovereign Governance. Cultural Authority. Intergenerational Stewardship.</h1>
-    <p class="hero-lead">The Yawarra Cultural Custodians Council (YCCC) is the sovereign body ensuring that all investment, enterprise, and governance aligns with cultural law, Elder approvals, and intergenerational benefit-sharing.</p>
+    <img id="hero-logo"
+         src="CCC_Logo_Dark.png"
+         alt="Cultural Custodians Council">
+    <h1 class="hero-headline">
+      Sovereign Governance. Cultural Authority. Intergenerational Stewardship.
+    </h1>
+    <p class="hero-lead">
+      The Yawarra Cultural Custodians Council (YCCC) is the sovereign body ensuring that all investment,
+      enterprise, and governance aligns with cultural law, Elder approvals, and intergenerational benefit-sharing.
+    </p>
   </div>
 </section>
 
@@ -1421,7 +1424,49 @@ doctype html>
   applyPhotos();
 
   </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.querySelector("#top");
+  const heroLogo = document.getElementById("hero-logo");
+  const texts = document.querySelectorAll(".hero-headline, .hero-lead");
 
+  if (!hero || !heroLogo) return;
+
+  // Animate logo + text on load
+  setTimeout(() => {
+    heroLogo.classList.add("reveal");
+    texts.forEach(el => el.classList.add("reveal"));
+  }, 300);
+
+  // Scroll behavior
+  window.addEventListener("scroll", () => {
+    const heroHeight = hero.offsetHeight;
+    const scrolled = window.scrollY;
+
+    // Shrink navbar logo after hero
+    const head = document.querySelector(".head");
+    if (scrolled > heroHeight - 60) {
+      head.classList.add("shrink");
+    } else {
+      head.classList.remove("shrink");
+    }
+
+    // Hero logo fade & scale
+    let fadeLogo = 1 - scrolled / (heroHeight * 0.7);
+    fadeLogo = Math.max(fadeLogo, 0.6);
+    let scale = 1 - (scrolled / heroHeight) * 0.15;
+    scale = Math.max(scale, 0.85);
+
+    heroLogo.style.opacity = fadeLogo;
+    heroLogo.style.transform = `scale(${scale})`;
+
+    // Hero text fade
+    let fadeText = 1 - scrolled / (heroHeight * 0.7);
+    fadeText = Math.max(fadeText, 0.6);
+    texts.forEach(el => el.style.opacity = fadeText);
+  });
+});
+</script>
 </body>
 
 </html>
