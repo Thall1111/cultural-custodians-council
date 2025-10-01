@@ -142,3 +142,30 @@ details[open] p,
 details[open] li {
   color: #111318 !important;
 }
+/* FORCE details/summary panels to be solid white across all themes */
+body.theme-darkblue details,
+body.theme-darkblue details summary,
+body.theme-darkblue details[open],
+body.theme-darkblue details[open] * {
+  background: #ffffff !important;
+  color: #111318 !important;
+  border: 1px solid #d0d7e6 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,.2) !important;
+}
+
+/* Make summary always clickable and bold */
+body.theme-darkblue details summary {
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+/* Optional: add chevron arrow that rotates when open */
+body.theme-darkblue details summary::marker {
+  content: "▶ " !important;
+  color: #111318 !important;
+}
+body.theme-darkblue details[open] summary::marker {
+  content: "▼ " !important;
+  color: #111318 !important;
+}
