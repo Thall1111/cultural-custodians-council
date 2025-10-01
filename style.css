@@ -169,3 +169,72 @@ body.theme-darkblue details[open] summary::marker {
   content: "▼ " !important;
   color: #111318 !important;
 }
+
+/* ============================= */
+/* FORCE WHITE BACKGROUNDS + DARK TEXT */
+/* ============================= */
+
+/* Team bios (cards + modals) */
+.card,
+.card h3,
+.card p,
+.card .role,
+.modal-content,
+.modal-content h3,
+.modal-content p,
+.modal-content li,
+.modal-content .pop-role,
+.modal-content .pop-name {
+  background: #ffffff !important;  /* always solid white */
+  color: #111318 !important;       /* always dark text */
+}
+
+/* Ensure role subtitles are readable */
+.card .role,
+.modal-content .pop-role {
+  color: #58606b !important; /* muted dark gray */
+}
+
+/* Team cards hover effect (keep clickable feel) */
+.card {
+  cursor: pointer;
+  border: 1px solid #d0d7e6 !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+/* ============================= */
+/* Projects & CAF accordion panels */
+/* ============================= */
+details,
+details[open],
+details summary,
+details[open] * {
+  background: #ffffff !important;  /* solid white panels */
+  color: #111318 !important;       /* dark ink for readability */
+  border: 1px solid #d0d7e6 !important;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.1) !important;
+  padding: 8px 12px;
+}
+
+/* Make summary headings stand out */
+details summary {
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+/* Optional: chevron markers for clarity */
+details summary::marker {
+  content: "▶ " !important;
+  color: #111318 !important;
+}
+details[open] summary::marker {
+  content: "▼ " !important;
+  color: #111318 !important;
+}
