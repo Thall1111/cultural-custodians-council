@@ -1,3 +1,15 @@
 .head.shrink .navbar-logo {
   height: 32px; /* smaller size after scrolling */
 }
+/* Prevent horizontal scrolling overflow */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure hero and background don't overspill */
+#hero-logo,
+.songwrap svg {
+  max-width: 100%;
+  height: auto;
+}
