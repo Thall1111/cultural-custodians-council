@@ -349,4 +349,11 @@ body.theme-white .sl { opacity:.35; }
 .navbar-logo.visible {
   opacity: 1;
 }
+/* Navbar logo */
+.navbar-logo {
+  height: 40px;         /* consistent size */
+  width: auto;
+  opacity: 1;           /* <-- make sure it’s visible at all times */
+  transition: opacity 0.3s ease;
+}
 
