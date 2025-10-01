@@ -209,3 +209,38 @@ applyPhotos();
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
+// === Hero Animation + Logo Fade ===
+document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.querySelector("#top");
+  const heroLogo = document.getElementById("hero-logo");
+  const navbarLogo = document.getElementById("navbar-logo");
+  const texts = document.querySelectorAll(".hero-headline, .hero-lead");
+
+  if (!hero || !heroLogo || !navbarLogo) return;
+
+  // Animate hero logo + text on load
+  setTimeout(() => {
+    heroLogo.classList.add("reveal");
+    texts.forEach(el => el.classList.add("reveal"));
+  }, 300);
+
+  // ✅ Always show navbar logo from start
+  navbarLogo.classList.add("visible");
+
+  // Scroll behavior for Hero logo + text only
+  window.addEventListener("scroll", () => {
+    const heroHeight = hero.offsetHeight;
+    const scrolled = window.scrollY;
+
+    // Fade + scale Hero logo
+    let fadeLogo = Math.max(1 - scrolled / (heroHeight * 0.7), 0.666);
+    let scale = Math.max(1 - (scrolled / heroHeight) * 0.15, 0.85);
+
+    heroLogo.style.opacity = fadeLogo;
+    heroLogo.style.transform = `scale(${scale})`;
+
+    // Text fade
+    let fadeText = Math.max(1 - scrolled / (heroHeight * 0.7), 0.666);
+    texts.forEach(el => el.style.opacity = fadeText);
+  });
+});
