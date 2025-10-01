@@ -112,6 +112,120 @@ applyPhotos();
   });
 })();
 
+// === Theme toggle + Logo switching ===
+(function(){
+  const THEMES=['darkblue','skyblue','ochre','white'];
+  const KEY='yccc-theme';const root=document.body;
+  const navbarLogo=document.getElementById('navbar-logo');
+  const heroLogo=document.getElementById('hero-logo');
+
+  function updateLogos(theme){
+    if(theme==='darkblue'){
+      if(navbarLogo) navbarLogo.src='logos/logo-light.png';
+      if(heroLogo) heroLogo.src='logos/logo-light.png';
+    } else {
+      if(navbarLogo) navbarLogo.src='logos/logo-dark.png';
+      if(heroLogo) heroLogo.src='logos/logo-dark.png';
+    }
+  }
+
+  function apply(theme){
+    if(!THEMES.includes(theme))theme='white';
+    root.classList.remove(...THEMES.map(t=>'theme-'+t));
+    root.classList.add('theme-'+theme);
+    localStorage.setItem(KEY,theme);
+    document.querySelectorAll('.theme-toggle [data-theme]').forEach(btn=>{
+      btn.setAttribute('aria-pressed',String(btn.dataset.theme===theme));
+    });
+    updateLogos(theme);
+  }
+  function init(){
+    document.querySelectorAll('.theme-toggle [data-theme]').forEach(btn=>{
+      const set=()=>apply(btn.dataset.theme);
+      btn.addEventListener('click',set);
+      btn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();set();}});
+    });
+    apply(localStorage.getItem(KEY)||'white');
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();    ys.forEach((y,i)=>{const p=mk(colors[i]);p.setAttribute('d',build(w,h,7,y,amps[i],h*.06));svg.appendChild(p)});
+  }
+  regen();window.addEventListener('resize',regen);
+})();
+
+// === Apply photos to cards ===
+function applyPhotos(){
+  document.querySelectorAll('.card').forEach(card=>{
+    const url=card.dataset.photo||'';
+    const ph=card.querySelector('.photo');
+    if(url && ph) ph.style.backgroundImage=`url('${url}')`;
+  });
+}
+applyPhotos();
+
+// === Team bio modal ===
+(function(){
+  const popup=document.getElementById('popup');
+  const avatar=document.getElementById('pop-ava');
+  const nameEl=document.getElementById('popup-name');
+  const roleEl=document.getElementById('popup-role');
+  const bioEl=document.getElementById('popup-bio');
+  const ulEl=document.getElementById('popup-points');
+  const close=document.querySelector('.close');
+  let lastFocus=null;
+
+  function openCard(card){
+    lastFocus=document.activeElement;
+    popup.style.display='flex';
+    nameEl.textContent=card.dataset.name||'';
+    roleEl.textContent=card.dataset.role||'';
+    bioEl.textContent=card.dataset.bio||'';
+    avatar.style.backgroundImage=card.dataset.photo?`url('${card.dataset.photo}')`:'';
+    ulEl.innerHTML='';
+    (card.dataset.points||'').split(';').map(s=>s.trim()).filter(Boolean).forEach(p=>{
+      const li=document.createElement('li');li.textContent=p;ulEl.appendChild(li);
+    });
+    close.focus();
+  }
+  function hide(){
+    popup.style.display='none';
+    if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus();
+  }
+  document.querySelectorAll('.card').forEach(c=>{
+    c.addEventListener('click',()=>openCard(c));
+    c.setAttribute('tabindex','0');
+    c.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();openCard(c);}
+    });
+  });
+  close.addEventListener('click',hide);
+  window.addEventListener('click',e=>{if(e.target===popup)hide()});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')hide()});
+})();
+
+// === Tabs ===
+(function(){
+  document.querySelectorAll('[data-tabs]').forEach(root=>{
+    const tabs=Array.from(root.querySelectorAll('[role="tab"]'));
+    const panels=Array.from(root.querySelectorAll('[role="tabpanel"]'));
+    function setActive(idx){
+      tabs.forEach((t,i)=>{const sel=i===idx;t.setAttribute('aria-selected',String(sel));t.tabIndex=sel?0:-1;});
+      panels.forEach((p,i)=>{p.hidden=(i!==idx);});
+    }
+    tabs.forEach((tab,idx)=>{
+      tab.addEventListener('click',()=>setActive(idx));
+      tab.addEventListener('keydown',e=>{
+        const key=e.key;let next=idx;
+        if(key==='ArrowRight')next=(idx+1)%tabs.length;
+        if(key==='ArrowLeft')next=(idx-1+tabs.length)%tabs.length;
+        if(key==='Home')next=0;if(key==='End')next=tabs.length-1;
+        if(next!==idx){e.preventDefault();tabs[next].focus();setActive(next);}
+      });
+    });
+    setActive(0);
+  });
+})();
+
 // === Theme toggle ===
 (function(){
   const THEMES=['darkblue','skyblue','ochre','white'];
