@@ -71,3 +71,32 @@
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('.nav');
+const body = document.body;
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  nav.classList.toggle('show');
+  body.classList.toggle('menu-open'); // ✅ lock/unlock scroll
+});
+.tablist {
+  display: flex;
+  gap: 8px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow-x: auto;       /* ✅ scroll horizontally */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;  /* hide scrollbar on Firefox */
+}
+
+.tablist::-webkit-scrollbar {
+  display: none;          /* hide scrollbar on WebKit */
+}
+
+.tab {
+  flex: 0 0 auto;         /* ✅ prevent squashing */
+  white-space: nowrap;    /* ✅ keep text on one line */
+}
