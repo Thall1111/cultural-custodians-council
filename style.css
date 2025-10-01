@@ -1,7 +1,7 @@
 /* Hero logo - always visible, larger, responsive */
 #hero-logo {
-  max-width: 720px;   /* large cap for desktop */
-  width: 90%;         /* scale with container */
+  max-width: 720px;
+  width: 90%;
   margin: 0 auto 40px;
   display: block;
 }
@@ -9,63 +9,37 @@
 /* Mobile tweak */
 @media (max-width: 768px) {
   #hero-logo {
-    width: 95%;       /* almost full width */
-    max-width: 440px; /* safe limit for small screens */
+    width: 95%;
+    max-width: 440px;
   }
 }
+
 /* Ensure team bio modal always readable */
-.modal-content,
-.modal-content h3,
-.modal-content p,
-.modal-content li,
-.modal-content .pop-role,
-.modal-content .pop-name {
-  color: #111318 !important;  /* dark ink */
-}
-/* Dark Blue theme text contrast fix */
-body.theme-darkblue h1,
-body.theme-darkblue h2,
-body.theme-darkblue h3,
-body.theme-darkblue p,
-body.theme-darkblue li,
-body.theme-darkblue .lead {
-  color: #eef3ff !important; /* brighter ink for readability */
-}
-
-/* Optional: accent bullets and links stronger */
-body.theme-darkblue ul.check li::before {
-  background: #75aaff; /* brighter blue accent */
-}
-
-body.theme-darkblue a {
-  color: #75aaff;
-}
-/* Always force card + modal text to be dark on white */
-.card,
-.card h3,
-.card p,
-.card .role,
-.modal-content,
-.modal-content h3,
-.modal-content p,
-.modal-content li {
-  color: #111318 !important; /* dark ink for readability */
-}
-
-/* Optional: adjust role subtler */
-.card .role {
-  color: #58606b !important; /* muted dark gray */
-}
-
 .modal-content {
-  background: #ffffff !important;   /* solid white */
-  color: #111318 !important;        /* dark ink for readability */
+  background: #ffffff !important;
+  color: #111318 !important;
   border: 1px solid var(--line);
   border-radius: 12px;
   box-shadow: 0 24px 60px rgba(0,0,0,.25);
-}.card {
-  background: #ffffff !important;     /* always white cards */
-  color: #111318 !important;          /* always dark ink */
+}
+
+.modal-content h3,
+.modal-content p,
+.modal-content li,
+.modal-content .pop-name,
+.modal-content .pop-role {
+  color: #111318 !important;
+}
+
+.modal-content .pop-role {
+  color: #58606b !important;
+  font-weight: 600;
+}
+
+/* Cards - always white, clickable */
+.card {
+  background: #ffffff !important;
+  color: #111318 !important;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -74,16 +48,33 @@ body.theme-darkblue a {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
   border-color: #d0d7e6;
-}.card h3,
-.card p,
-.card .role,
-.modal-content h3,
-.modal-content p,
-.modal-content li {
-  color: #111318 !important;
 }
 
-.card .role,
-.modal-content .pop-role {
-  color: #58606b !important;  /* muted dark gray for roles */
+/* Clickable cue */
+.card::after {
+  content: "→";
+  display: block;
+  font-size: 14px;
+  color: #58606b;
+  margin-top: 8px;
+  opacity: 0.7;
+}
+
+/* Dark Blue theme global text contrast */
+body.theme-darkblue h1,
+body.theme-darkblue h2,
+body.theme-darkblue h3,
+body.theme-darkblue p,
+body.theme-darkblue li,
+body.theme-darkblue .lead {
+  color: #eef3ff !important;
+}
+
+/* Dark Blue accent tweaks */
+body.theme-darkblue ul.check li::before {
+  background: #75aaff;
+}
+
+body.theme-darkblue a {
+  color: #75aaff;
 }
