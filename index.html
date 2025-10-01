@@ -57,7 +57,43 @@ doctype html>
   .sl{fill:none; stroke-linecap:round; stroke-width:2.2; stroke-dasharray:1 14; filter:url(#sl-glow); opacity:.35}
 
   @keyframes sl-drift {from{stroke-dashoffset:0} to{stroke-dashoffset:-1200}}
+/* Navbar logo size */
+.navbar-logo {
+  height: 46px; /* larger by default */
+  width: auto;
+  display: block;
+  transition: height 0.3s ease;
+}
 
+.head.shrink .navbar-logo {
+  height: 32px;
+}
+
+/* Hero logo animation */
+#hero-logo {
+  max-width: 420px;
+  width: 80%;
+  margin: 0 auto 28px;
+  display: block;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.6s ease;
+}
+
+#hero-logo.reveal {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hero-headline,
+.hero-lead {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.hero-headline.reveal,
+.hero-lead.reveal {
+  opacity: 1;
+}
   /* Header */
 
   .head{
