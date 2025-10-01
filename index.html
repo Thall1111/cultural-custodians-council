@@ -1,17 +1,19 @@
-doctype html>
-
+<!doctype html>
 <html lang="en">
 
 <head>
-
 <meta charset="utf-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <title>YCCC – Sovereign Capital · Cultural Assurance</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
 
+<body>
+  <!-- Songlines background -->
+  <div class="songwrap" aria-hidden="true">
+    <svg id="bg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"></svg>
+  </div>
 <style>
 
   :root{
@@ -1054,24 +1056,30 @@ doctype html>
   </section>
 
   <footer>
-
     © 2025 Yawarra Cultural Custodian Council · All rights reserved.
+  </footer>
 
   </footer>
 
   <!-- Modal -->
-
+  <!-- Modal -->
   <div id="popup" class="modal" role="dialog" aria-modal="true" aria-labelledby="popup-name">
-
     <div class="modal-content">
-
       <span class="close" aria-label="Close">&times;</span>
-
       <div class="pop-hdr">
-
         <div id="pop-ava" class="pop-ava" aria-hidden="true"></div>
-
         <div>
+          <h3 id="popup-name" class="pop-name"></h3>
+          <p id="popup-role" class="pop-role"></p>
+        </div>
+        
+      </div>
+      <div class="pop-body">
+        <p id="popup-bio"></p>
+        <ul id="popup-points"></ul>
+      </div>
+    </div>
+  </div>
 
           <h3 id="popup-name" class="pop-name"></h3>
 
@@ -1093,19 +1101,14 @@ doctype html>
 
   </div>
 
-  <!-- Theme Toggle (single source of truth) -->
-
+  <!-- Theme Toggle -->
   <div class="theme-toggle" role="group" aria-label="Color themes">
-
     <button type="button" data-theme="darkblue">Dark Blue</button>
-
     <button type="button" data-theme="skyblue">Sky Blue</button>
-
     <button type="button" data-theme="ochre">Ochre</button>
-
     <button type="button" data-theme="white">White</button>
-
   </div>
+
 
   <script>
 
@@ -1387,6 +1390,7 @@ doctype html>
 
   </script>
 
+<!-- External Script -->
+  <script src="Script.js"></script>
 </body>
-
 </html>
