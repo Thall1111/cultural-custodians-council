@@ -1,6 +1,7 @@
+/* Hero logo - always visible, larger, responsive */
 #hero-logo {
-  max-width: 720px;   /* large desktop cap */
-  width: 90%;         /* scale on smaller screens */
+  max-width: 720px;   /* large cap for desktop */
+  width: 90%;         /* scale with container */
   margin: 0 auto 40px;
   display: block;
 }
@@ -8,7 +9,7 @@
 /* Mobile tweak */
 @media (max-width: 768px) {
   #hero-logo {
-    width: 95%;
-    max-width: 440px; 
+    width: 95%;       /* almost full width */
+    max-width: 440px; /* safe limit for small screens */
   }
 }
