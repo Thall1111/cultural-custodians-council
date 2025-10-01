@@ -349,3 +349,42 @@ body.theme-white .sl { opacity:.35; }
 .navbar-logo.visible {
   opacity: 1;
 }
+/* Logo Styling */
+.hero-logo {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 280px;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Reveal on load */
+.hero-logo.reveal {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hero headline + lead text */
+.hero-headline,
+.hero-lead {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.hero-headline.reveal,
+.hero-lead.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Navbar logo */
+.navbar-logo {
+  height: 42px;
+  width: auto;
+  opacity: 0; /* hidden until scrolled past Hero */
+  transition: opacity 0.4s ease;
+}
+.navbar-logo.visible {
+  opacity: 1;
+}
