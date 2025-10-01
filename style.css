@@ -1,9 +1,3 @@
 .head.shrink .navbar-logo {
-  height: 32px;  /* smaller once you scroll */
-  transition: height 0.3s ease;
-}.navbar-logo {
-  height: 46px;   /* bigger size inside 64px header */
-  width: auto;
-  display: block;
-  transition: height 0.3s ease; /* smooth if it shrinks */
+  height: 32px; /* smaller size after scrolling */
 }
