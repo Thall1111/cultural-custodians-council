@@ -349,14 +349,4 @@ body.theme-white .sl { opacity:.35; }
 .navbar-logo.visible {
   opacity: 1;
 }
-/* Hero Logo */
-.hero-logo {
-  display: block;
-  margin: 0 auto 20px;
-  max-width: 280px;     /* limit width */
-  width: 100%;          /* scale down responsively */
-  height: auto;         /* maintain aspect ratio */
-  opacity: 0;
-  transform: scale(1.1);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+
