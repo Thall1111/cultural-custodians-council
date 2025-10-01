@@ -56,3 +56,34 @@ body.theme-darkblue a {
 .card .role {
   color: #58606b !important; /* muted dark gray */
 }
+
+.modal-content {
+  background: #ffffff !important;   /* solid white */
+  color: #111318 !important;        /* dark ink for readability */
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.25);
+}.card {
+  background: #ffffff !important;     /* always white cards */
+  color: #111318 !important;          /* always dark ink */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  border-color: #d0d7e6;
+}.card h3,
+.card p,
+.card .role,
+.modal-content h3,
+.modal-content p,
+.modal-content li {
+  color: #111318 !important;
+}
+
+.card .role,
+.modal-content .pop-role {
+  color: #58606b !important;  /* muted dark gray for roles */
+}
